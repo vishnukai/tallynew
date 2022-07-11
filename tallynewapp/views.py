@@ -19,6 +19,11 @@ def groupalter(request,id):
 def editunit(request):
     return render(request,'editunit.html')
 
+
+def units(request):
+    today_date=datetime.datetime.now()
+    return render(request, 'units.html',{'todaydate':today_date}) 
+
 def editgodown(request):
     return render(request,'godown.html')
 

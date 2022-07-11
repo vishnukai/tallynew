@@ -11,4 +11,5 @@ urlpatterns = [
     path('stockcat',views.stockcat,name='stockcat'),
     path('newgroupemploye',views.newgroupemploye,name='newgroupemploye'),
     path('stockgroup',views.stockgroup,name='stockgroup'),
+    path('units',views.units,name='units'),
 ]
