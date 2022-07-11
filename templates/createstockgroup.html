@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+    {% block body %}
+        {% load static %}
+        <form action="" method="POST">
+        <div class="col-sm-12">
+          
+            <div class="col-sm-6">
+               <div class="row">
+                <div class="col-sm-5">
+                    <div class="row">
+                    <label>Name</label> </div>
+                    <div class="row">
+                    <label>alias</label></div> <div class="row">
+                    <label>Under</label></div> <div class="row">
+                    <label>Should quantites of items be added</label></div> <div class="row">
+                    <label>Set/Alter quantites GST Details</label></div>
+               
+            </div>
+               
+                <div class="col-sm-7">
+                    <div class="row">
+                    :<input name="name" type="text"></div><div class="row">
+                    :<input alias="alias" type="text"></div><div class="row">
+                    :<input under="under" type="text"></div><div class="row">
+                    : &nbsp;&nbsp;<input  type="radio" id="yesorno" name="yesorno" value="True">&nbsp;&nbsp;<label for="yesorno" >Yes</label>&nbsp;&nbsp;
+                    &nbsp;&nbsp; <input type="radio" id="yesornot" name="yesorno" value="False"> &nbsp;&nbsp;<label for="yesornot" >No</label>
+                     </div><div class="row">
+                       : &nbsp;&nbsp;<input  type="radio" id="yesorno" name="yesornoq" value="True">&nbsp;&nbsp;<label for="yesorno" >Yes</label>&nbsp;&nbsp;
+                        &nbsp;&nbsp; <input type="radio" id="yesornot" name="yesornoq" value="False"> &nbsp;&nbsp;<label for="yesornot" >No</label>
+                         </div>
+
+                  
+                </div>
+
+            </div>
+         
+
+
+            </div>
+            <div class="col-sm-4" style="text-align:center;">
+                <input type="submit" value="Save">
+
+
+
+
+
+
+
+
+</form>
+
+
+
+        {% endblock %}

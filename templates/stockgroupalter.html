@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+    {% block body %}
+        {% load static %}
+        <form action="" method="POST">
+        <div class="col-sm-12" >
+          
+            <div class="row"> 
+             
+                <div class="col-sm-3">
+                    <label>Name</label><br>
+                    
+                    <label>alias</label><br>
+                    
+                    <label>Under</label><br>
+                    
+                    <label>Should quantites of items be added</label><br>
+                    
+                    <label>Set/Alter quantites GST Details</label>
+                </div>
+               
+          
+               
+                <div class="col-sm-6">
+                  
+                    :<input name="name" type="text" value={{stockgrpi.name}}><br>
+                    :<input alias="alias" type="text"  value={{stockgrpi.alias}}><br>
+                    
+                    :<input list="under" name="under" placeholder="" onkeyup="myFunction()" value="{{stockgrpi.under}}" style="background:#2f516f;border:none;color:white">
+                    <datalist id="under">
+          
+                      
+                       <ul id="myUL">
+                           
+                              
+                          <select >
+                      
+                           {% for st in stockgrp %}
+                           <option > 
+                         <li >{{  st.name }}</li></option>
+                         {% endfor %}    
+                        <option> <li><a href="">Create</a></li></option>
+                       </select>
+                       
+                       </ul>      
+                       
+                    </datalist>  <br>
+
+
+
+
+
+                        :<select >
+                      
+                           
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                             
+                       
+                       </select><br>
+                       
+                      
+                       
+                   
+                        
+
+                     
+        
+          
+                      
+                    
+
+                          :<select >
+                      
+                           
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                             
+                             
+                        
+                       </select>
+     
+
+                  
+               
+                        </div>
+         
+         
+
+
+           
+            <div class="col-sm-4" style="text-align:center;">
+                <input type="submit" value="Save">
+            </div>
+
+
+</div>
+
+
+
+
+
+</form>
+
+
+
+        {% endblock %}
