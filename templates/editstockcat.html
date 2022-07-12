@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+
+    {% block body %}
+    <style>
+        input{
+        background-color: #2f516f;
+        border:none;
+    }
+    input:focus{
+        background-color:rgb(255, 153, 0);
+    
+    }
+        </style>
+        {% load static %}
+        <form action="{% url 'savecat' sc.id %}" method="POST">
+            {% csrf_token %}
+        <div class="col-sm-12" >
+          
+            <div class="row"> 
+             
+                <div class="col-sm-3">
+                    <label>Name</label><br>
+                    
+                    <label>alias</label><br>
+                    
+                    <label>Under</label><br>
+                    
+              
+                </div>
+               
+          
+               
+                <div class="col-sm-6">
+                  
+                    :<input    name="name" type="text" value={{sc.name}}><br>
+                    :<input name="alias" type="text"  value={{sc.alias}}><br>
+                    
+                    :<input  list="under" name="under" placeholder="" onkeyup="myFunction()" value="{{sc.under}}" >
+                    <datalist id="under">
+          
+                      
+                       <ul id="myUL">
+                           
+                              
+                          <select >
+                      
+                           {% for st in stockgrp %}
+                           <option > 
+                         <li >{{  st.name }}</li></option>
+                         {% endfor %}    
+                         <option> <li>Primary</li></option>
+                       <a role="button" href="{% url 'creategrp' %}"><button></button>Create</button></a>
+                        
+                       </select>
+                       
+                       </ul>      
+                       
+                    </datalist>  <br>
+
+
+                    
+                       
+                      
+                       
+                   
+                        
+
+                     
+        
+          
+                      
+                    
+
+                   
+     
+
+                  
+               
+                        </div>
+         
+         
+
+
+           
+            <div class="col-sm-4" style="text-align:center;">
+                <input type="submit" value="Save">
+            </div>
+
+
+</div>
+
+
+
+
+
+</form>
+
+
+
+        {% endblock %}

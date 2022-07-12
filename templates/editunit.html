@@ -1,49 +1,120 @@
 {% extends 'base.html' %}
+
+
     {% block body %}
+    <style>
+        input{
+        background-color: #2f516f;
+        border:none;
+    }
+    input:focus{
+        background-color:rgb(255, 153, 0);
+    
+    }
+        </style>
         {% load static %}
-        <form action="" method="POST">
-        <div class="col-sm-12">
+        <form action="{% url 'saveunit' unit.id %}" method="POST">
+            {% csrf_token %}
+        <div class="col-sm-12" >
           
-            <div class="col-sm-6" >
-               <div class="row">
-                <div class="col-sm-4">
-                    <div class="row">
-                    <label>Type</label> </div>
-                    <div class="row">
-                    <label>Symbol</label></div> <div class="row">
-                    <label>Formal name</label></div> <div class="row">
-                    <label>Unit Quanity code (UQC)</label></div> <div class="row">
-                    <label>Number of decimal places</label></div><div class="row">
-                    <label>Under</label></div> 
-               
-            </div>
-               
-                <div class="col-sm-6">
-                    <div class="row">
-                    :<input type="text"></div><div class="row">
-                    :<input type="text"></div><div class="row">
-                    :<input type="text"></div><div class="row">
-                    :<input type="text"></div><div class="row">
-                    :<input type="text"></div><div class="row">
-                    :<input type="text"></div>
-
-
+            <div class="row"> 
+             
+                <div class="col-sm-3">
+                    <label>Type</label><br>
+                    
+                    <label>Symbol</label><br>
+                    
+                    <label>Formal Name</label><br>
+                    <label>Unit Quantity Code(UQC)</label><br>
+                    
+                    <label>Number of decimal places</label><br>
+                    
+              
                 </div>
                
-            </div>
           
-             
+               
+                <div class="col-sm-6">
+                  
+                    :<input  list="type" name="type" placeholder="" onkeyup="myFunction()" value="{{unit.type.type}}" readonly >
+                    <datalist id="type">
+          
+                      
+                       <ul id="myUL">
+                           
+                              
+                          <select >
+                      
+                           {% for t in type %}
+                           <option > 
+                         <li >{{  type.type }}</li></option>
+                         {% endfor %}    
+                        
+                     
+                        
+                       </select>
+                       
+                       </ul>      
+                       
+                    </datalist>  <br>
+                    :<input name="symbol" type="text"  value={{unit.symbol}}><br>
+                    :<input name="name" type="text"  value={{unit.formalname}}><br>
+                    
+                    :<input  list="unitcode" name="unitcode" placeholder="" onkeyup="myFunction()" value="{{unit.unitcode.unitcode}}" >
+                    <datalist id="unitcode">
+          
+                      
+                       <ul id="myUL">
+                           
+                              
+                          <select >
+                      
+                           {% for u in unitcode %}
+                           <option > 
+                         <li >{{  u.unitcode }}</li></option>
+                         {% endfor %}    
+                         
+                      
+                        
+                       </select>
+                       
+                       </ul>      
+                       
+                    </datalist>  <br>
 
-            </div>
+                    :<input name="decimal" type="number"  min="0" max="9"  value={{unit.decimal}}><br>
 
-            <div class="col-sm-3" style="text-align:center;">
+
+                    
+                       
+                      
+                       
+                   
+                        
+
+                     
+        
+          
+                      
+                    
+
+                   
+     
+
+                  
+               
+                        </div>
+         
+         
+
+
+           
+            <div class="col-sm-4" style="text-align:center;">
                 <input type="submit" value="Save">
             </div>
-           
-        
+
 
 </div>
-
 
 
 

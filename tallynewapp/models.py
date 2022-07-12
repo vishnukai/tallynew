@@ -5,8 +5,8 @@ class Stockgroup(models.Model):
     name=models.CharField(max_length=225)
     alias=models.CharField(max_length=225)
     under=models.CharField(max_length=225)
-    quanty=models.BooleanField(default=False)
-    gstvalue=models.BooleanField(default=False)
+    quanty=models.CharField(max_length=225)
+    gstvalue=models.CharField(max_length=225)
 
 class Taxability(models.Model):
     name=models.CharField(max_length=225)
@@ -17,12 +17,18 @@ class Gst(models.Model):
     integratedtax=models.IntegerField()
     Cess=models.IntegerField()
 
+class Unitcode(models.Model):
+    unitcode=models.CharField(max_length=225)
+
+class Type(models.Model):
+    type=models.CharField(max_length=225)
+
 
 class Unit(models.Model):
-    type=models.CharField(max_length=225)
+    type=models.ForeignKey(Type,on_delete=models.CASCADE)
     symbol=models.CharField(max_length=225)
-    foramlname=models.CharField(max_length=225)
-    unitcode=models.CharField(max_length=225)
+    formalname=models.CharField(max_length=225)
+    unitcode=models.ForeignKey(Unitcode,on_delete=models.CASCADE)
     decimal=models.IntegerField()
 
 class Godowns(models.Model):

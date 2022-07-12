@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
+
+
     {% block body %}
+    <style>
+        input{
+        background-color: #2f516f;
+        border:none;
+    }
+    input:focus{
+        background-color:rgb(255, 153, 0);
+    
+    }
+        </style>
         {% load static %}
-        <form action="" method="POST">
+        <form action="{% url 'savegrp' stockgrpi.id %}" method="POST">
+            {% csrf_token %}
         <div class="col-sm-12" >
           
             <div class="row"> 
@@ -22,10 +35,10 @@
                
                 <div class="col-sm-6">
                   
-                    :<input name="name" type="text" value={{stockgrpi.name}}><br>
-                    :<input alias="alias" type="text"  value={{stockgrpi.alias}}><br>
+                    :<input    name="name" type="text" value={{stockgrpi.name}}><br>
+                    :<input name="alias" type="text"  value={{stockgrpi.alias}}><br>
                     
-                    :<input list="under" name="under" placeholder="" onkeyup="myFunction()" value="{{stockgrpi.under}}" style="background:#2f516f;border:none;color:white">
+                    :<input  list="under" name="under" placeholder="" onkeyup="myFunction()" value="{{stockgrpi.under}}" >
                     <datalist id="under">
           
                       
@@ -38,7 +51,9 @@
                            <option > 
                          <li >{{  st.name }}</li></option>
                          {% endfor %}    
-                        <option> <li><a href="">Create</a></li></option>
+                         <option> <li>Primary</li></option>
+                       <a role="button" href="{% url 'creategrp' %}"><button></button>Create</button></a>
+                        
                        </select>
                        
                        </ul>      
@@ -46,14 +61,27 @@
                     </datalist>  <br>
 
 
-                        :<select >
+                    :<input list="qty" name="qty" placeholder="" onkeyup="myFunction()" value="{{stockgrpi.quanty}}" >
+                    <datalist id="qty">
+          
+                      
+                       <ul id="myUL">
+                           
+                              
+                          <select >
                       
                            
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                             
+                           <option > 
+                         <li >Yes</li></option>
+                         <option > 
+                            <li >No</li></option>
+                            
                        
-                       </select><br>
+                       </select>
+                       
+                       </ul>      
+                       
+                    </datalist>  <br>
                        
                       
                        
@@ -66,15 +94,27 @@
                       
                     
 
-                          :<select >
+                    :<input list="gst" name="gst" placeholder="" onkeyup="myFunction()" value="{{stockgrpi.gstvalue}}" >
+                    <datalist id="gst">
+          
                       
+                       <ul id="myUL">
                            
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
+                              
+                          <select >
+                      
+                          
+                           <option > 
+                         <li >Yes</li></option>
+                         <option > 
+                            <li >No</li></option>
                              
-                             
-                        
+                       
                        </select>
+                       
+                       </ul>      
+                       
+                    </datalist>  <br>
      
 
                   
